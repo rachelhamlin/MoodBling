@@ -1,7 +1,20 @@
-* {
+body {
   padding: 0;
   margin: 0;
   border: none;
+  animation: color-animation 10s infinite;
+}
+
+@keyframes color-animation {
+  0% {
+    background-color: #ad1457;
+  }
+  50% {
+    background-color: #6a1b9a;
+  }
+  100%; {
+    background-color: #bbdefb;
+  }
 }
 
 .grid:after {
@@ -26,11 +39,5 @@
 .col-1-2 {
   width: 50%;
   height: 100vh;
-  background-color: rgba(255,255,255,.8);
   text-align: center;
-}
-
-.test {
-  width: 100%;
-  background-color: #a0bd2c;
 }
