@@ -5,7 +5,7 @@ body {
   animation: color-animation 10s infinite;
 }
 
-@keyframes color-animation {
+/*@keyframes color-animation {
   0% {
     background-color: #ad1457;
   }
@@ -15,7 +15,7 @@ body {
   100%; {
     background-color: #bbdefb;
   }
-}
+}*/
 
 .grid:after {
   content: '';
