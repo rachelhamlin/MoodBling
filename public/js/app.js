@@ -11,7 +11,7 @@ app.config(['$routeProvider', function( $routeProvider ) {
 
     .when('/results', {
       templateUrl: '/views/partials/results.html',
-      controller: 'inputController'
+      controller: 'resultsController'
     })
 
     .otherwise({
