@@ -1,5 +1,18 @@
 <div ng-controller='resultsController'>
-RESULTS!!!
-{{ emotions.anger }}
+
+<div class='spinner' ng-show='loading'>
+  <double-bounce-spinner></double-bounce-spinner>
+</div>
+
+<div class='content' ng-show='!loading'>
+  RESULTS!!!
+  <ul>
+    <li>You're this angry: {{ emotions.anger }}</li>
+    <li>You're this joyful: {{ emotions.joy }}</li>
+    <li>You're this sad: {{ emotions.sadness }}</li>
+    <li>You're this disgusted: {{ emotions.disgust }}</li>
+    <li>You're this afraid: {{ emotions.fear }}</li>
+  </ul>
+</div>
 
 </div>

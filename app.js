@@ -8,6 +8,7 @@ var app = express();
 app.use(morgan('dev'));
 
 app.use(express.static( __dirname + '/public' ));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 var indexRouter = function(req, res){
   res.sendFile( __dirname + '/public/views/index.html' );

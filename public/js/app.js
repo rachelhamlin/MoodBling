@@ -1,6 +1,9 @@
 console.log('hey girl, whats up, its the end of the day');
 
-var app = angular.module('MoodApp', ['ngRoute']);
+var app = angular.module('MoodApp', [
+  'ngRoute',
+  'angular-spinkit'
+]);
 
 app.config(['$routeProvider', function( $routeProvider ) {
   $routeProvider
