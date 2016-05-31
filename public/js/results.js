@@ -1,4 +1,4 @@
-app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location', function( $scope, alchemyAPI, $http, $location ) {
+app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location', 'spotifyAPI', function( $scope, alchemyAPI, $http, $location, spotifyAPI ) {
 
   $scope.loading = true;
 
@@ -6,6 +6,17 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
       $scope.loading = false;
       $scope.emotions = data.emotionData;
       console.log($scope.emotions);
+      $scope.runSpotify();
     });
+
+  $scope.runSpotify = function(){
+    console.log('running');
+    spotifyAPI.testFunction().then(function(response){
+      $scope.$on('spotify_data', function(event, data){
+        console.log(data.spotifyData.playlists);
+        $scope.playlists = data.spotifyData.playlists.items;
+      })
+    });
+  };
 
 }]);
