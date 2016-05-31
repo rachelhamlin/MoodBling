@@ -2,6 +2,7 @@ console.log('hey girl, whats up, its the end of the day');
 
 var app = angular.module('MoodApp', [
   'ngRoute',
+  'ngResource',
   'angular-spinkit'
 ]);
 
