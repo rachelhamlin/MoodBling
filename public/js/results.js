@@ -13,8 +13,9 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
     console.log('running');
     spotifyAPI.testFunction().then(function(response){
       $scope.$on('spotify_data', function(event, data){
-        console.log(data.spotifyData.playlists);
-        $scope.playlists = data.spotifyData.playlists.items;
+        console.log('hey i need data');
+        console.log(data.spotifyData);
+        // $scope.playlists = data.spotifyData.playlists.items;
       })
     });
   };

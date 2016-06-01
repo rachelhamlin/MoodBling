@@ -2,6 +2,7 @@ var express    = require('express'),
     morgan     = require('morgan'),
     bodyParser = require('body-parser'),
     spotifyWebAPI = require('spotify-web-api-node'),
+    request      = require('request'),
     dotenv     = require('dotenv').config();
 
 var app = express();
@@ -18,12 +19,10 @@ var indexRouter = function(req, res){
 var alchemyRouter = require('./server/api/alchemy');
 var spotifyRouter = require('./server/api/spotify');
 
-var env = process.env.NODE_ENV || 'develop';
-var watson_key = process.env.WATSON_KEY;
-
 app.get('/', indexRouter);
 app.use('/api/alchemy', alchemyRouter);
 app.use('/api/spotify', spotifyRouter);
+
 
 var port = 8080;
 app.listen(port, function(){
