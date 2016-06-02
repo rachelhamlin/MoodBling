@@ -7,8 +7,6 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
 
   // When the data comes back...
   $scope.$on('emotion_data', function(event, data){
-      // TODO: move the loading animation into the Spotify function
-      $scope.loading = false;
 
       // Get the emotions object (which includes the user's score for fear, anger, sadness, joy and disgust)
       var emotions = data.emotionData;
@@ -47,81 +45,67 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
   $scope.runJoy = function(){
     console.log('joy function ran');
     $scope.eval = 'happy!';
+    $scope.descriptor = 'a happy song';
     spotifyAPI.getJoy().then(function(response){
-      $scope.$on('spotify_data', function(event,data){
-        console.log('fetching joy data');
-        // TODO write a rendering function that will present data for any emotion
-        $scope.trackName = data.spotifyData.track.name;
-        console.log($scope.trackName);
-      })
+      $scope.getData();
+      $scope.loading = false;
     })
   }
 
   $scope.runAnger = function(){
     console.log('anger function ran');
     $scope.eval = 'kind of angry';
+    $scope.descriptor = 'an angry song';
     spotifyAPI.getAnger().then(function(response){
-      $scope.$on('spotify_data', function(event,data){
-        console.log('fetching anger data');
-        $scope.trackName = data.spotifyData.track.name;
-        console.log($scope.trackName);
-      })
+      $scope.getData();
+      $scope.loading = false;
     })
   }
 
   $scope.runFear = function(){
     console.log('fear function ran');
     $scope.eval = 'kind of afraid';
+    $scope.descriptor = 'a chill song';
     spotifyAPI.getFear().then(function(response){
-      $scope.$on('spotify_data', function(event,data){
-        console.log('fetching fear data');
-        $scope.trackName = data.spotifyData.track.name;
-        console.log($scope.trackName);
-      })
+      $scope.getData();
+      $scope.loading = false;
     })
   }
 
   $scope.runSadness = function(){
     console.log('sadness function ran');
     $scope.eval = 'kind of sad';
+    $scope.descriptor = 'some blues';
     spotifyAPI.getSadness().then(function(response){
-      $scope.$on('spotify_data', function(event,data){
-        console.log('fetching sadness data');
-        $scope.trackName = data.spotifyData.track.name;
-        console.log($scope.trackName);
-      })
+      $scope.getData();
+      $scope.loading = false;
     })
   }
 
   $scope.runDisgust = function(){
     console.log('disgust function ran');
     $scope.eval = 'kind of weird';
+    $scope.descriptor = 'a happy song';
     spotifyAPI.getDisgust().then(function(response){
-      $scope.$on('spotify_data', function(event,data){
-        console.log('fetching disgust data');
-        $scope.trackName = data.spotifyData.track.name;
-        console.log($scope.trackName);
-      })
+      $scope.getData();
+      $scope.loading = false;
     })
   }
 
-  $scope.runSpotify = function(){
-    console.log('running');
-    spotifyAPI.testFunction().then(function(response){
-      $scope.$on('spotify_data', function(event, data){
-        $scope.trackName = data.spotifyData.track.name;
-        $scope.artist = data.spotifyData.track.artists[0].name;
-        $scope.previewUrl = data.spotifyData.track.preview_url;
-        $scope.albumCover = data.spotifyData.track.album.images[0].url;
-        var audio = document.createElement('audio');
-        var albumCover = $('<img class="album" src=' + $scope.albumCover + '>');
-        audio.setAttribute('id', 'song');
-        $('#audio').append(audio);
-        // $('#audio').append(albumCover);
-        audio.src = ($scope.previewUrl);
-      })
-    });
-  };
+  $scope.getData = function(){
+    $scope.$on('spotify_data', function(event,data){
+      $scope.trackName = data.spotifyData.track.name;
+      $scope.artist = data.spotifyData.track.artists[0].name;
+      $scope.previewUrl = data.spotifyData.track.preview_url;
+      $scope.albumCover = data.spotifyData.track.album.images[0].url;
+      var audio = document.createElement('audio');
+      audio.setAttribute('id', 'song');
+      $('#audio').append(audio);
+      audio.src = ($scope.previewUrl);
+      $scope.playSong();
+    })
+  }
+
 
 // Custom click toggle function to account for "play/pause"
 $.fn.clickToggle = function(a, b) {
@@ -140,7 +124,7 @@ $.fn.clickToggle = function(a, b) {
 
 // Play or pause the recommended song
 $scope.playSong = function(){
-  $('#audio').clickToggle(function(){
+  $('.album').clickToggle(function(){
     var song = document.getElementById('song');
     song.play();
   }, function(){
@@ -149,6 +133,16 @@ $scope.playSong = function(){
 }
 
 $scope.playSong();
+
+// Show the play/pause buttons
+$scope.showButtons = function(){
+  $('.album').mouseover(function(){
+    console.log('mousey!!');
+    $('.fa-play-circle').css('visibility', 'visible');
+  })
+}
+
+$scope.showButtons();
 
 
 }]);

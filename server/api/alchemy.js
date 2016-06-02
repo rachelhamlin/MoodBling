@@ -9,6 +9,7 @@ router.get('/results', function(req, res) {
        }
       request.get({ url: 'http://gateway-a.watsonplatform.net/calls/text/TextGetEmotion?apikey=' + process.env.WATSON_KEY + '&outputMode=json&text=' + req.query.textInput }, function(error, response, body) {
               if (!error && response.statusCode == 200) {
+                  console.log("*********************ALCHEMY ANALYSIS!!!!!!!!!!!!!!!!!!!!!!*********************");
                   res.json(JSON.parse(response.body));
                  }
           });

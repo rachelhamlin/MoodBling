@@ -5,26 +5,25 @@
 </div>
 
 <div class='content' ng-show='!loading'>
-  RESULTS!!!
-  You sound {{ eval }}
-  <ul>
-    <li>You're this angry: {{ emotions.anger }}</li>
-    <li>You're this joyful: {{ emotions.joy }}</li>
-    <li>You're this sad: {{ emotions.sadness }}</li>
-    <li>You're this disgusted: {{ emotions.disgust }}</li>
-    <li>You're this afraid: {{ emotions.fear }}</li>
-  </ul>
 
-  And the Spotify data:
-  <ul ng-repeat='playlist in playlists'>
-      <li>{{ playlist.name }} by {{ $scope.artist }}</li>
-  </ul>
+    <div id='emotion'>
+      You seem <br>
+      <span class='eval'>{{ eval }}</span>
+      <br><br>
+      <a href='#/'>Try it again!</a>
+    </div>
 
-  <div id='audio'>
-    <p>{{ trackName }}</p>
-  </div>
+    <div id='music' class='float'>
+      Have {{ descriptor }}:
+      <div id='audio' class='float'>
+        <p>{{ trackName }} by {{ artist }}</p>
+      </div>
+      <div class='album' style="background-image:url({{ albumCover }})">
+        <i class='fa fa-play-circle fa-3x' aria-hidden='true' style='visibility:hidden'></i>
+        <i class='fa fa-pause-circle fa-3x' aria-hidden='true' style='visibility:hidden'></i>
+      </div>
+    </div>
 
-  <a href='#/'>Try it again!</a>
 </div>
 
 </div>

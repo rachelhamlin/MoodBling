@@ -4,26 +4,83 @@ body {
   border: none;
   background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
   background-size: 1600% 1600%;
-  -webkit-animation: colorAnimation 75s ease infinite;
-  -moz-animation: colorAnimation 75s ease infinite;
-  animation: colorAnimation 75s ease infinite;
+  -webkit-animation: indexAnimation 75s ease infinite;
+  -moz-animation: indexAnimation 75s ease infinite;
+  animation: indexAnimation 75s ease infinite;
 }
 
 /*Thanks to Ian Forrest and www.gradient-animator.com for this!*/
-@-webkit-keyframes colorAnimation {
+@-webkit-keyframes indexAnimation {
     0%{background-position:84% 0%}
     50%{background-position:17% 100%}
     100%{background-position:84% 0%}
 }
-@-moz-keyframes colorAnimation {
+@-moz-keyframes indexAnimation {
     0%{background-position:84% 0%}
     50%{background-position:17% 100%}
     100%{background-position:84% 0%}
 }
-@keyframes colorAnimation {
+@keyframes indexAnimation {
     0%{background-position:84% 0%}
     50%{background-position:17% 100%}
     100%{background-position:84% 0%}
+}
+
+
+@-webkit-keyframes happyAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes happyAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes happyAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.joy {
+  background: linear-gradient(270deg, #cdb300, #a8cd00);
+  background-size: 1600% 1600%;
+  -webkit-animation: happyAnimation 20s ease infinite;
+  -moz-animation: happyAnimation 20s ease infinite;
+  animation: happyAnimation 20s ease infinite;
+}
+
+.anger {
+  background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
+  background-size: 1600% 1600%;
+  -webkit-animation: angryAnimation 75s ease infinite;
+  -moz-animation: angryAnimation 75s ease infinite;
+  animation: angryAnimation 75s ease infinite;
+}
+
+.fear {
+  background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
+  background-size: 1600% 1600%;
+  -webkit-animation: fearAnimation 75s ease infinite;
+  -moz-animation: fearAnimation 75s ease infinite;
+  animation: fearAnimation 75s ease infinite;
+}
+
+.sadness {
+  background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
+  background-size: 1600% 1600%;
+  -webkit-animation: sadAnimation 75s ease infinite;
+  -moz-animation: sadAnimation 75s ease infinite;
+  animation: sadAnimation 75s ease infinite;
+}
+
+.disgust {
+  background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
+  background-size: 1600% 1600%;
+  -webkit-animation: disgustAnimation 75s ease infinite;
+  -moz-animation: disgustAnimation 75s ease infinite;
+  animation: disgustAnimation 75s ease infinite;
 }
 
 .grid:after {
@@ -86,3 +143,86 @@ h1 {
   font-weight: normal !important;
   color: #a8e636 !important;
 }
+
+#circle-svg {
+  position: absolute;
+  font-family: "fira-sans-2", sans-serif;
+  right: 2%;
+  bottom: 3%;
+}
+
+#circle-svg circle {
+  fill: #dfe0e2;
+}
+
+#circle-svg:hover circle {
+  fill: #cacbcd;
+  cursor: pointer;
+}
+
+#circle-svg:hover text {
+  stroke: #292929;
+}
+
+.content {
+  margin: 0 auto;
+  width: 500px;
+  color: #FFFFFF;
+}
+
+.float {
+  padding: 0;
+  margin: 0;
+}
+
+#emotion {
+  position: fixed;
+}
+
+.eval {
+  font-size: 2rem;
+  font-family: "fira-sans-2", sans-serif;
+}
+
+#music {
+  float: right;
+}
+
+.album {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  border: 3px solid #FFFFFF;
+  border-radius: 5px;
+  justify-content: center;
+  padding: 0;
+}
+
+.album i {
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+}
+
+.album:hover {
+  background-color: rgba(0,0,0,.6);
+  cursor: pointer;
+}
+
+/*.album:after {
+    content: '\A';
+    position: absolute;
+    width: 100%; height:100%;
+    top:0px; left:0px;
+    background:rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+
+.album:hover:after {
+  opacity: 1;
+  cursor: pointer;
+}*/

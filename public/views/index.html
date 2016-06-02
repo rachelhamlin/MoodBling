@@ -7,6 +7,7 @@
     <script src="//use.edgefonts.net/baumans.js"></script>
     <script src="https://use.typekit.net/ava6zbf.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js" charset="utf-8"></script>
@@ -29,10 +30,16 @@
       </div>
       <div class='col-1-2'>
         <div>
-          <img id='boombox' src='/images/boomboxalt.png'/>
+          <img id='boombox' src='/images/boombox_a.gif'/>
           <h1>moodbling</h1>
         </div>
         <div ng-view></div>
+        <div>
+          <svg id='circle-svg' height='40' width='40'>
+            <circle cx='15' cy='15' r='15'/>
+            <text x="50%" y="50%" text-anchor="middle" stroke="#5a5a5a" dx='-.3em'><a href='#'>?</a></text>
+          </svg>
+        </div>
       </div>
      <div class='col-1-4'>
        &nbsp;
