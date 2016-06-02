@@ -1,9 +1,10 @@
-var express    = require('express'),
-    morgan     = require('morgan'),
-    bodyParser = require('body-parser'),
+var express       = require('express'),
+    morgan        = require('morgan'),
+    bodyParser    = require('body-parser'),
     spotifyWebAPI = require('spotify-web-api-node'),
-    request      = require('request'),
-    dotenv     = require('dotenv').config();
+    request       = require('request'),
+    underscore    = require('underscore'),
+    dotenv        = require('dotenv').config();
 
 var app = express();
 

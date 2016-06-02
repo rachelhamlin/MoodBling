@@ -2,7 +2,7 @@
 <html ng-app='MoodApp'>
   <head>
     <meta charset="utf-8">
-    <title>Beep boop beep boop</title>
+    <title>mood bling, digital mood ring</title>
     <link rel='stylesheet' href='css/styles.css'>
     <script src="//use.edgefonts.net/baumans.js"></script>
     <script src="https://use.typekit.net/ava6zbf.js"></script>
@@ -16,6 +16,7 @@
     <link rel='stylesheet' href='bower_components/angular-spinkit/build/angular-spinkit.min.css'>
     <script src='bower_components/angular-spinkit/build/angular-spinkit.min.js'></script>
     <script src='js/app.js'></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
     <script src='js/services/alchemy.js'></script>
     <script src='js/services/spotify.js'></script>
     <script src='js/input.js'></script>
@@ -28,6 +29,7 @@
       </div>
       <div class='col-1-2'>
         <div>
+          <img id='boombox' src='/images/boomboxalt.png'/>
           <h1>moodbling</h1>
         </div>
         <div ng-view></div>

@@ -6,6 +6,7 @@
 
 <div class='content' ng-show='!loading'>
   RESULTS!!!
+  You sound {{ eval }}
   <ul>
     <li>You're this angry: {{ emotions.anger }}</li>
     <li>You're this joyful: {{ emotions.joy }}</li>
@@ -16,11 +17,12 @@
 
   And the Spotify data:
   <ul ng-repeat='playlist in playlists'>
-      <li>{{ playlist.name }}</li>
+      <li>{{ playlist.name }} by {{ $scope.artist }}</li>
   </ul>
 
-  <p>{{ trackName }}</p>
-  <div id='audio'>Play me!</div>
+  <div id='audio'>
+    <p>{{ trackName }}</p>
+  </div>
 
   <a href='#/'>Try it again!</a>
 </div>
