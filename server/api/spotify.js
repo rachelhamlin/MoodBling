@@ -19,33 +19,43 @@ function initSpotifyWebApi( token ) {
 
 // router.get('/tracks', function(req,res){
 
-function getTracks(playlistOwner, playlistId) {
-  console.log("I'm doing my thing!");
-  spotify.getPlaylistTracks(playlistOwner, playlistId, { 'offset' : 1, 'limit' : 5, 'fields' : 'items' })
-    .then(function(data) {
-      var tracks = data.body.items;
-      console.log(tracks);
-      var track  = tracks[Math.floor(Math.random() * tracks.length)];
-      var trackName = track.track.name;
-      // console.log('the chosen track!' + track.track.name + ', url: ' + track.track.preview_url);
-      res.send(track);
-    }, function(err) {
-      console.log('Something went wrong!', err);
-    });
-}
+// function getTracks(playlistOwner, playlistId) {
+//   console.log("I'm doing my thing!");
+//   spotify.getPlaylistTracks(playlistOwner, playlistId, { 'offset' : 1, 'limit' : 5, 'fields' : 'items' })
+//     .then(function(data) {
+//       var tracks = data.body.items;
+//       console.log(tracks);
+//       var track  = tracks[Math.floor(Math.random() * tracks.length)];
+//       var trackName = track.track.name;
+//       console.log('the chosen track!' + track.track.name + ', url: ' + track.track.preview_url);
+//       res.json(JSON.parse(track));
+//     }, function(err) {
+//       console.log('Something went wrong!', err);
+//     });
+// }
 
 router.get('/playlists', function(req,res){
   console.log('playlist me');
-  spotify.searchPlaylists('happy', {limit: 10})
+  spotify.searchPlaylists('sad', {limit: 10})
   .then(function(data) {
     var playlists = data.body.playlists.items;
     var playlist = playlists[Math.floor(Math.random() * playlists.length)];
     playlistOwner = playlist.owner.id;
     playlistId = playlist.id;
-    getTracks(playlistOwner, playlistId);
+    // getTracks(playlistOwner, playlistId);
     console.log(playlistOwner);
     console.log(playlistId);
-    // res.json(playlist);
+    spotify.getPlaylistTracks(playlistOwner, playlistId, { 'offset' : 1, 'limit' : 5, 'fields' : 'items' })
+      .then(function(data) {
+        var tracks = data.body.items;
+        console.log(tracks);
+        var track  = tracks[Math.floor(Math.random() * tracks.length)];
+        var trackName = track.track.name;
+        console.log('the chosen track!' + track.track.name + ', url: ' + track.track.preview_url);
+        res.json(track);
+      }, function(err) {
+        console.log('Something went wrong!', err);
+      });
   }, function(err) {
     console.error(err);
   });
