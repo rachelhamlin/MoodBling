@@ -8,9 +8,13 @@
     <script src="https://use.typekit.net/ava6zbf.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn:400,700,400italic' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js" charset="utf-8"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js" charset="utf-8"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js" charset="utf-8"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js" charset="utf-8"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-route.min.js" charset="utf-8"></script>
+    <script src='bower_components/angular-animate/angular-animate.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/form.js'></script>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/form.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/button.min.css'>
@@ -34,12 +38,15 @@
           <img id='boombox' src='/images/boombox_a.gif'/>
           <h1>moodbling</h1>
         </div>
-        <div ng-view></div>
+        <div ng-class='page {{ pageClass }}' ng-view></div>
         <div>
-          <svg id='circle-svg' height='40' width='40'>
+          <svg id='circle-svg' height='40' width='40' ng-click="showInfo = ! showInfo">
             <circle cx='15' cy='15' r='15'/>
-            <text x="50%" y="50%" text-anchor="middle" stroke="#5a5a5a" dx='-.3em'><a href='#'>?</a></text>
+            <text x="50%" y="50%" text-anchor="middle" stroke="#5a5a5a" dx='-.3em'><a>?</a></text>
           </svg>
+          <div id='info-window' ng-show='showInfo'>
+            Info blah blah
+          </div>
         </div>
       </div>
      <div class='col-1-4'>
