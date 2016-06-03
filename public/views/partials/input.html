@@ -1,11 +1,20 @@
 <div ng-controller='inputController'>
 
-  <div class='ui form'>
+  <!-- <form class='ui form'>
     <div class='field'>
       <label>How are you doing today?</label>
       <textarea ng-model='textInput' placeholder="I'm having a great day!"></textarea>
     </div>
-      <button class='ui button' ng-click='sendInput(textInput)'>Submit</button>
+      <button class='ui button' type="submit" ng-click='sendInput(textInput)'>Submit</button>
+  </form> -->
+
+
+  <form class='ui form' ng-submit='sendInput(textInput)'>
+    <div class='field'>
+      <label>How are you doing today?</label>
+      <textarea ng-model='textInput' placeholder="I'm having a great day!"></textarea>
+    </div>
+      <button class='ui button' type='submit'>Submit</button>
   </form>
 
 </div>

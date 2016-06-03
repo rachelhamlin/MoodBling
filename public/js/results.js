@@ -94,10 +94,12 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
 
   $scope.getData = function(){
     $scope.$on('spotify_data', function(event,data){
+      console.log("track ID " + data.spotifyData.track.id);
       $scope.trackName = data.spotifyData.track.name;
       $scope.artist = data.spotifyData.track.artists[0].name;
       $scope.previewUrl = data.spotifyData.track.preview_url;
       $scope.albumCover = data.spotifyData.track.album.images[0].url;
+      $scope.trackID = data.spotifyData.track.id;
       var audio = document.createElement('audio');
       audio.setAttribute('id', 'song');
       $('#audio').append(audio);

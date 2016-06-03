@@ -200,15 +200,16 @@ h1 {
 
 .circle-button a {
   font-size: 1.5rem;
-  font-family: 'Vollkorn', sans-serif;
-  font-style: oblique;
-  font-weight: normal;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
   line-height: 80px;
 }
 
 .circle-button:hover {
   cursor: pointer;
-  background-color: #2F2441;
+}
+.circle-button:hover a {
+  color: #8c77b0;
 }
 
 .ui form {
@@ -226,8 +227,10 @@ h1 {
 
 .ui label {
   text-align: left;
-  font-family: helvetica;
-  font-size: .7rem !important;
+  font-family: 'Vollkorn';
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1rem !important;
   font-weight: normal !important;
   color: #a8e636 !important;
 }
@@ -298,8 +301,16 @@ h1 {
   text-decoration: none;
 }
 
+#emotion a:hover {
+  text-decoration: underline;
+}
+
 #music {
   float: right;
+}
+
+#audio p {
+  word-wrap: break-word;
 }
 
 .album {
@@ -313,6 +324,7 @@ h1 {
   border-radius: 5px;
   justify-content: center;
   padding: 0;
+  margin: 0 auto;
 }
 
 .album i {
