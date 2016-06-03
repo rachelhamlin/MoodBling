@@ -10,7 +10,8 @@
       You seem <br>
       <span class='eval'>{{ eval }}</span>
       <br><br>
-      <a href='#/'>Try it again!</a>
+      <p><i class='fa fa-repeat fa-lg' aria-hidden='true'></i>&nbsp;&nbsp;<a href='#/input'>Play again</a></p>
+      <p><i class='fa fa-plus fa-lg' aria-hidden='true'></i>&nbsp;&nbsp;Save to playlist</p>
     </div>
 
     <div id='music' class='float'>
@@ -19,8 +20,10 @@
         <p>{{ trackName }} by {{ artist }}</p>
       </div>
       <div class='album' style="background-image:url({{ albumCover }})">
-        <i class='fa fa-play-circle fa-3x' aria-hidden='true' style='visibility:hidden'></i>
-        <i class='fa fa-pause-circle fa-3x' aria-hidden='true' style='visibility:hidden'></i>
+        <div class="overlay">
+        </div>
+        <i class='fa fa-play-circle fa-3x play' aria-hidden='true'></i>
+        <i class='fa fa-pause-circle fa-3x pause' aria-hidden='true'></i>
       </div>
     </div>
 

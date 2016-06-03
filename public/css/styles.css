@@ -2,6 +2,8 @@ body {
   padding: 0;
   margin: 0;
   border: none;
+  color: #FFFFFF;
+  font-family: helvetica;
   background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
   background-size: 1600% 1600%;
   -webkit-animation: indexAnimation 75s ease infinite;
@@ -41,6 +43,14 @@ body {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
+}
+
+.primary {
+  background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
+  background-size: 1600% 1600%;
+  -webkit-animation: indexAnimation 75s ease infinite;
+  -moz-animation: indexAnimation 75s ease infinite;
+  animation: indexAnimation 75s ease infinite;
 }
 
 .joy {
@@ -123,6 +133,11 @@ h1 {
   text-shadow: 0px 2px 3px #000000;
 }
 
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .ui form {
   overflow: hidden;
 }
@@ -167,7 +182,6 @@ h1 {
 .content {
   margin: 0 auto;
   width: 500px;
-  color: #FFFFFF;
 }
 
 .float {
@@ -179,9 +193,23 @@ h1 {
   position: fixed;
 }
 
-.eval {
+#emotion .eval {
   font-size: 2rem;
+}
+
+#emotion i {
+  color: #292038;
+}
+
+#emotion p {
+  text-align: left;
+}
+
+#emotion p, a{
+  color: #FFFFFF;
   font-family: "fira-sans-2", sans-serif;
+  font-weight: normal;
+  text-decoration: none;
 }
 
 #music {
@@ -191,6 +219,7 @@ h1 {
 .album {
   width: 200px;
   height: 200px;
+  position: relative;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -201,28 +230,36 @@ h1 {
 }
 
 .album i {
-  color: #FFFFFF;
+  color: rgba(255,255,255,0);
   margin: 0;
   padding: 0;
+  z-index: 30;
 }
 
 .album:hover {
-  background-color: rgba(0,0,0,.6);
   cursor: pointer;
 }
 
-/*.album:after {
-    content: '\A';
-    position: absolute;
-    width: 100%; height:100%;
-    top:0px; left:0px;
-    background:rgba(0,0,0,0.6);
-    opacity: 0;
-    transition: all 1s;
-    -webkit-transition: all 1s;
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background: rgba(0,0,0,0);
+  overflow: hidden;
+  transition: all 0.5s;
 }
 
-.album:hover:after {
-  opacity: 1;
-  cursor: pointer;
-}*/
+.album.hover .overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.album.hover i.play {
+  color: rgba(255,255,255,1);
+}
+
+.album.playing i.pause {
+  color: rgba(255,255,255,1);
+}

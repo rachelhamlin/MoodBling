@@ -122,27 +122,34 @@ $.fn.clickToggle = function(a, b) {
     });
 };
 
-// Play or pause the recommended song
+// Play or pause the recommended song & show buttons
 $scope.playSong = function(){
   $('.album').clickToggle(function(){
     var song = document.getElementById('song');
     song.play();
+    $('.play').css('color', 'rgba(255,255,255,0)');
+    $('.pause').css('color', 'rgba(255,255,255,1)');
   }, function(){
     song.pause();
+    $('.play').css('color', 'rgba(255,255,255,1)');
+    $('.pause').css('color', 'rgba(255,255,255,0)');
   });
 }
 
 $scope.playSong();
 
-// Show the play/pause buttons
-$scope.showButtons = function(){
-  $('.album').mouseover(function(){
-    console.log('mousey!!');
-    $('.fa-play-circle').css('visibility', 'visible');
+// Toggle overlay
+$scope.toggleOverlay = function(){
+  $('.album').mouseenter(function(){
+    $(this).addClass('hover');
+  })
+  .mouseleave(function(){
+    $(this).removeClass('hover');
+    $('.play').css('color', 'rgba(255,255,255,0)');
+    $('.pause').css('color', 'rgba(255,255,255,0)');
   })
 }
 
-$scope.showButtons();
-
+$scope.toggleOverlay();
 
 }]);

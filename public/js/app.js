@@ -8,6 +8,11 @@ var app = angular.module('MoodApp', [
 app.config(['$routeProvider', function( $routeProvider ) {
   $routeProvider
     .when('/', {
+      templateUrl: '/views/partials/welcome.html',
+      controller: 'welcomeController'
+    })
+
+    .when('/input', {
       templateUrl: '/views/partials/input.html',
       controller: 'inputController'
     })
@@ -18,7 +23,7 @@ app.config(['$routeProvider', function( $routeProvider ) {
     })
 
     .otherwise({
-      redirectTo: '/index'
+      redirectTo: '/input'
     })
 
 }]);
