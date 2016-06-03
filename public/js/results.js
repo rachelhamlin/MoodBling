@@ -127,12 +127,12 @@ $scope.playSong = function(){
   $('.album').clickToggle(function(){
     var song = document.getElementById('song');
     song.play();
-    $('.play').css('color', 'rgba(255,255,255,0)');
-    $('.pause').css('color', 'rgba(255,255,255,1)');
+    $('.play').toggleClass('active');
+    $('.pause').toggleClass('active');
   }, function(){
     song.pause();
-    $('.play').css('color', 'rgba(255,255,255,1)');
-    $('.pause').css('color', 'rgba(255,255,255,0)');
+    $('.play').toggleClass('active');
+    $('.pause').toggleClass('active');
   });
 }
 
@@ -142,11 +142,11 @@ $scope.playSong();
 $scope.toggleOverlay = function(){
   $('.album').mouseenter(function(){
     $(this).addClass('hover');
+    $('.active').show();
   })
   .mouseleave(function(){
     $(this).removeClass('hover');
-    $('.play').css('color', 'rgba(255,255,255,0)');
-    $('.pause').css('color', 'rgba(255,255,255,0)');
+    $('.active').hide();
   })
 }
 
