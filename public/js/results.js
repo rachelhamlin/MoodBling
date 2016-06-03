@@ -127,12 +127,10 @@ $scope.playSong = function(){
   $('.album').clickToggle(function(){
     var song = document.getElementById('song');
     song.play();
-    $('.play').toggleClass('active');
-    $('.pause').toggleClass('active');
+    $(this).addClass('playing');
   }, function(){
     song.pause();
-    $('.play').toggleClass('active');
-    $('.pause').toggleClass('active');
+    $(this).removeClass('playing');
   });
 }
 
@@ -143,10 +141,18 @@ $scope.toggleOverlay = function(){
   $('.album').mouseenter(function(){
     $(this).addClass('hover');
     $('.active').show();
+    if ($(this).hasClass('playing')){
+      $('.play').hide();
+      $('.pause').show();
+    }
   })
   .mouseleave(function(){
     $(this).removeClass('hover');
     $('.active').hide();
+    if (!$(this).hasClass('playing')) {
+      $('.pause').hide();
+      $('.play').addClass('active');
+    }
   })
 }
 

@@ -230,7 +230,6 @@ a:hover {
 }
 
 .album i {
-  color: rgba(255,255,255,0);
   margin: 0;
   padding: 0;
   z-index: 30;
@@ -254,12 +253,4 @@ a:hover {
 
 .album.hover .overlay {
   background: rgba(0, 0, 0, 0.8);
-}
-
-.album.hover i.play {
-  color: rgba(255,255,255,1);
-}
-
-.album.playing i.pause {
-  color: rgba(255,255,255,1);
 }
