@@ -13,8 +13,8 @@ spotifyHelper(initSpotifyWebApi)
 
 function initSpotifyWebApi( token ) {
   spotify = new spotifyWebAPI({
-    clientID : '9d048b8d9f3e4dda8290122911457166',
-    clientSecret : 'd0e1966e910146569a532b48eb51a27e',
+    clientID : process.env.SPOTIFY_ID,
+    clientSecret : process.env.SPOTIFY_SECRET,
     accessToken: token
   })
 }
