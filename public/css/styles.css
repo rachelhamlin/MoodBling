@@ -4,6 +4,13 @@ body {
   border: none;
   color: #FFFFFF;
   font-family: helvetica;
+}
+
+/* background animations ----------------------------------------- */
+/*Thanks to Ian Forrest and www.gradient-animator.com for these!*/
+
+/* main bg */
+.primary {
   background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
   background-size: 1600% 1600%;
   -webkit-animation: indexAnimation 75s ease infinite;
@@ -11,9 +18,6 @@ body {
   animation: indexAnimation 75s ease infinite;
 }
 
-/* background animations ----------------------------------------- */
-
-/*Thanks to Ian Forrest and www.gradient-animator.com for this!*/
 @-webkit-keyframes indexAnimation {
     0%{background-position:84% 0%}
     50%{background-position:17% 100%}
@@ -30,7 +34,7 @@ body {
     100%{background-position:84% 0%}
 }
 
-
+/* joy */
 @-webkit-keyframes happyAnimation {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
@@ -47,25 +51,34 @@ body {
     100%{background-position:0% 50%}
 }
 
-.primary {
-  background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
-  background-size: 1600% 1600%;
-  -webkit-animation: indexAnimation 75s ease infinite;
-  -moz-animation: indexAnimation 75s ease infinite;
-  animation: indexAnimation 75s ease infinite;
-}
-
 .joy {
-  background: linear-gradient(270deg, #cdb300, #a8cd00);
-  background-size: 1600% 1600%;
+  background: linear-gradient(270deg, #d3d411, #89ab14, #e0b004);
+  background-size: 600% 600%;
   -webkit-animation: happyAnimation 20s ease infinite;
   -moz-animation: happyAnimation 20s ease infinite;
   animation: happyAnimation 20s ease infinite;
 }
 
+/* anger */
+@-webkit-keyframes angryAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes angryAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes angryAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 .anger {
-  background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
-  background-size: 1600% 1600%;
+  background: linear-gradient(270deg, #9a0823, #dc4243, #f0755d);
+  background-size: 600% 600%;
   -webkit-animation: angryAnimation 75s ease infinite;
   -moz-animation: angryAnimation 75s ease infinite;
   animation: angryAnimation 75s ease infinite;
@@ -79,14 +92,32 @@ body {
   animation: fearAnimation 75s ease infinite;
 }
 
+/* sadness */
+@-webkit-keyframes sadAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes sadAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes sadAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 .sadness {
-  background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
+  background: linear-gradient(270deg, #134586, #2470a9, #4f93c5);
   background-size: 1600% 1600%;
   -webkit-animation: sadAnimation 75s ease infinite;
   -moz-animation: sadAnimation 75s ease infinite;
   animation: sadAnimation 75s ease infinite;
 }
 
+/* disgust */
 .disgust {
   background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
   background-size: 1600% 1600%;
@@ -94,6 +125,9 @@ body {
   -moz-animation: disgustAnimation 75s ease infinite;
   animation: disgustAnimation 75s ease infinite;
 }
+
+/* fear */
+
 
 /* page animations ----------------------------------------- */
 
@@ -171,7 +205,7 @@ body {
   width: 30%;
 }
 
-h1 {
+#title {
   font-family: "fira-sans-2", sans-serif;
   font-size: 3.5rem;
   margin-top: 0;
@@ -257,12 +291,16 @@ h1 {
 }
 
 #info-window {
-  width: 200px;
-  height: 100px;
+  width: 250px;
+  height: 80px;
+  padding: .5%;
+  padding-top: .7%;
+  font-size: .7em;
+  text-align: left;
   position: absolute;
   right: 4.5%;
   bottom: 6%;
-  border-radius: 20px;
+  border-radius: 15px;
   background-color: rgba(255,255,255,.6);
   color: #292929;
   z-index: 0;
@@ -286,6 +324,10 @@ h1 {
   font-size: 2rem;
 }
 
+#emotion .eval:hover {
+  text-decoration: none;
+}
+
 #emotion i {
   color: #292038;
 }
@@ -301,7 +343,7 @@ h1 {
   text-decoration: none;
 }
 
-#emotion a:hover {
+#emotion span:hover {
   text-decoration: underline;
 }
 
@@ -309,8 +351,8 @@ h1 {
   float: right;
 }
 
-#audio p {
-  word-wrap: break-word;
+#audio {
+  max-width: 300px;
 }
 
 .album {

@@ -10,14 +10,14 @@
       You seem...<br>
       <span class='eval'>{{ eval }}</span>
       <br><br>
-      <p><i class='fa fa-repeat fa-lg' aria-hidden='true'></i>&nbsp;&nbsp;<a href='#/input'>Start over</a></p>
-      <p><i class='fa fa-external-link fa-lg' aria-hidden='true'></i>&nbsp;&nbsp;<a href='http://open.spotify.com/track/{{ trackID }}' target='_blank'>Open in Spotify</a></p>
+      <p><a href='#/input' id='restart'><i class='fa fa-repeat fa-lg' aria-hidden='true'></i>&nbsp;&nbsp;<span>Start over</span></a></p>
+      <p><a href='http://open.spotify.com/track/{{ trackID }}' target='_blank'><i class='fa fa-external-link fa-lg' aria-hidden='true'></i>&nbsp;&nbsp;<span>Open in Spotify</span></a></p>
     </div>
 
     <div id='music' class='float'>
       Have {{ descriptor }}:
       <div id='audio' class='float'>
-        <p>{{ trackName }} by {{ artist }}</p>
+        <p>{{ trackName }} — {{ artist }}</p>
       </div>
       <div class='album' style="background-image:url({{ albumCover }})">
         <div class="overlay">

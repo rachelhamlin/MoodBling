@@ -45,9 +45,10 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
   $scope.runJoy = function(){
     console.log('joy function ran');
     $scope.eval = 'happy!';
+    var color = 'joy';
     $scope.descriptor = 'a happy song';
     spotifyAPI.getJoy().then(function(response){
-      $scope.getData();
+      $scope.getData(color);
       $scope.loading = false;
     })
   }
@@ -55,9 +56,10 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
   $scope.runAnger = function(){
     console.log('anger function ran');
     $scope.eval = 'kind of angry';
+    var color = 'anger';
     $scope.descriptor = 'an angry song';
     spotifyAPI.getAnger().then(function(response){
-      $scope.getData();
+      $scope.getData(color);
       $scope.loading = false;
     })
   }
@@ -65,9 +67,10 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
   $scope.runFear = function(){
     console.log('fear function ran');
     $scope.eval = 'kind of afraid';
+    var color = 'fear';
     $scope.descriptor = 'a chill song';
     spotifyAPI.getFear().then(function(response){
-      $scope.getData();
+      $scope.getData(color);
       $scope.loading = false;
     })
   }
@@ -75,9 +78,10 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
   $scope.runSadness = function(){
     console.log('sadness function ran');
     $scope.eval = 'kind of sad';
+    var color = 'sadness';
     $scope.descriptor = 'some blues';
     spotifyAPI.getSadness().then(function(response){
-      $scope.getData();
+      $scope.getData(color);
       $scope.loading = false;
     })
   }
@@ -85,15 +89,17 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
   $scope.runDisgust = function(){
     console.log('disgust function ran');
     $scope.eval = 'kind of weird';
+    var color = 'disgust';
     $scope.descriptor = 'a happy song';
     spotifyAPI.getDisgust().then(function(response){
-      $scope.getData();
+      $scope.getData(color);
       $scope.loading = false;
     })
   }
 
-  $scope.getData = function(){
+  $scope.getData = function(color){
     $scope.$on('spotify_data', function(event,data){
+      $('body').addClass(color).removeClass('primary');
       console.log("track ID " + data.spotifyData.track.id);
       $scope.trackName = data.spotifyData.track.name;
       $scope.artist = data.spotifyData.track.artists[0].name;
@@ -105,8 +111,19 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
       $('#audio').append(audio);
       audio.src = ($scope.previewUrl);
       $scope.playSong();
+      $scope.revertBackground(color);
     })
   }
+
+// Change background back on re-start
+  $scope.revertBackground = function(color){
+    $('#restart').click(function(){
+      console.log('clicked');
+      $('body').addClass('primary').removeClass(color);
+    });
+  }
+
+  $scope.revertBackground();
 
 
 // Custom click toggle function to account for "play/pause"
