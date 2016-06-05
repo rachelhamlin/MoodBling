@@ -66,7 +66,7 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
 
   $scope.runFear = function(){
     console.log('fear function ran');
-    $scope.eval = 'kind of afraid';
+    $scope.eval = 'a little anxious';
     var color = 'fear';
     $scope.descriptor = 'a chill song';
     spotifyAPI.getFear().then(function(response){
@@ -77,7 +77,7 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
 
   $scope.runSadness = function(){
     console.log('sadness function ran');
-    $scope.eval = 'kind of sad';
+    $scope.eval = 'sad';
     var color = 'sadness';
     $scope.descriptor = 'some blues';
     spotifyAPI.getSadness().then(function(response){
@@ -88,7 +88,7 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
 
   $scope.runDisgust = function(){
     console.log('disgust function ran');
-    $scope.eval = 'kind of weird';
+    $scope.eval = 'vaguely disgusted';
     var color = 'disgust';
     $scope.descriptor = 'a happy song';
     spotifyAPI.getDisgust().then(function(response){

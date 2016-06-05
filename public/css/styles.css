@@ -127,7 +127,13 @@ body {
 }
 
 /* fear */
-
+.disgust {
+  background: linear-gradient(219deg, #21a785, #563777, #9868cb, #9e518f, #1c528d, #009c9b, #a933b8, #a70e46);
+  background-size: 1600% 1600%;
+  -webkit-animation: disgustAnimation 75s ease infinite;
+  -moz-animation: disgustAnimation 75s ease infinite;
+  animation: disgustAnimation 75s ease infinite;
+}
 
 /* page animations ----------------------------------------- */
 
@@ -322,6 +328,9 @@ body {
 
 #emotion .eval {
   font-size: 2rem;
+  font-family: 'Vollkorn', sans-serif;
+  font-weight: bold;
+  font-style: italic;
 }
 
 #emotion .eval:hover {
@@ -394,3 +403,20 @@ body {
 .album.hover .overlay {
   background: rgba(0, 0, 0, 0.8);
 }
+
+@media (min-width:320px) { /* smartphones, iPhone, portrait 480x320 phones */ }
+@media (min-width:481px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
+
+@media (max-width:641px) {
+  #title {
+    font-size: 2.5em;
+  }
+
+  .welcome-text h2 {
+    font-size: 1.2em;
+  }
+
+  #circle-svg {
+    display: none;
+  }
+ }
