@@ -36,72 +36,6 @@ function getPlaylists (req,res){
   });
 }
 
-// router.get('/joy', function(req,res){
-//   spotify.searchPlaylists('happy', {limit: 10})
-//   .then(function(data) {
-//     var playlists = data.body.playlists.items;
-//     var playlist = playlists[Math.floor(Math.random() * playlists.length)];
-//     playlistOwner = playlist.owner.id;
-//     playlistId = playlist.id;
-//     getTracks(playlistOwner, playlistId, res);
-//   }, function(err) {
-//     console.error(err);
-//     spotifyHelper(initSpotifyWebApi);
-//   });
-// })
-//
-// router.get('/anger', function(req,res){
-//   spotify.searchPlaylists('angry', {limit: 10})
-//   .then(function(data) {
-//     var playlists = data.body.playlists.items;
-//     var playlist = playlists[Math.floor(Math.random() * playlists.length)];
-//     playlistOwner = playlist.owner.id;
-//     playlistId = playlist.id;
-//     getTracks(playlistOwner, playlistId, res);
-//   }, function(err) {
-//     console.error(err);
-//     spotifyHelper(initSpotifyWebApi);
-//   });
-// })
-//
-// router.get('/sadness', function(req,res){
-//   spotify.searchPlaylists('blues', {limit: 10})
-//   .then(function(data) {
-//     var playlists = data.body.playlists.items;
-//     var playlist = playlists[Math.floor(Math.random() * playlists.length)];
-//     playlistOwner = playlist.owner.id;
-//     playlistId = playlist.id;
-//     getTracks(playlistOwner, playlistId, res);
-//   }, function(err) {
-//     console.error(err);
-//   });
-// })
-//
-// router.get('/fear', function(req,res){
-//   spotify.searchPlaylists('chill', {limit: 10})
-//   .then(function(data) {
-//     var playlists = data.body.playlists.items;
-//     var playlist = playlists[Math.floor(Math.random() * playlists.length)];
-//     playlistOwner = playlist.owner.id;
-//     playlistId = playlist.id;
-//     getTracks(playlistOwner, playlistId, res);
-//   }, function(err) {
-//     console.error(err);
-//   });
-// })
-//
-// router.get('/disgust', function(req,res){
-//   spotify.searchPlaylists('happy', {limit: 10})
-//   .then(function(data) {
-//     var playlists = data.body.playlists.items;
-//     var playlist = playlists[Math.floor(Math.random() * playlists.length)];
-//     playlistOwner = playlist.owner.id;
-//     playlistId = playlist.id;
-//     getTracks(playlistOwner, playlistId, res);
-//   }, function(err) {
-//     console.error(err);
-//   });
-// })
 
 var getTracks = function(playlistOwner, playlistId, res){
   spotify.getPlaylistTracks(playlistOwner, playlistId, { 'offset' : 1, 'limit' : 5, 'fields' : 'items' })
@@ -111,6 +45,9 @@ var getTracks = function(playlistOwner, playlistId, res){
       var track  = tracks[Math.floor(Math.random() * tracks.length)];
       var trackName = track.track.name;
       console.log('the chosen track!' + track.track.name + ', url: ' + track.track.preview_url);
+      if (!track.track.preview_url) {
+        getTracks(playlistOwner, playlistId, res);
+      }; 
       res.json(track);
     }, function(err) {
       console.log('Something went wrong!', err);

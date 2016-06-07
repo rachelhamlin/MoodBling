@@ -117,7 +117,7 @@ app.controller('resultsController', ['$scope', 'alchemyAPI', '$http', '$location
 
 // Change background back on re-start
   $scope.revertBackground = function(color){
-    $('#restart').click(function(){
+    $('#restart, #title').click(function(){
       console.log('clicked');
       $('body').addClass('primary').removeClass(color);
     });
